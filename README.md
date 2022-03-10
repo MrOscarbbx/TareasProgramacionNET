@@ -8,7 +8,7 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
 
 :cowboy_hat_face: :sunglasses:
 
-- [ ] Tarea 1
+- [x] Tarea 1
 - [ ] Tarea 2
 - [ ] Tarea 3
 - [ ] Tarea 4
