@@ -1,0 +1,15 @@
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\Ejersicios.exe
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\Ejersicios.deps.json
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\Ejersicios.runtimeconfig.json
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\Ejersicios.dll
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\ref\Ejersicios.dll
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\bin\Debug\net6.0\Ejersicios.pdb
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.csproj.AssemblyReference.cache
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.AssemblyInfoInputs.cache
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.AssemblyInfo.cs
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.csproj.CoreCompileInputs.cache
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.dll
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\ref\Ejersicios.dll
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.pdb
+C:\Users\Oscar Rivera\source\repos\Ejersicios\Ejersicios\obj\Debug\net6.0\Ejersicios.genruntimeconfig.cache
