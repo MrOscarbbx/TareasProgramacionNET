@@ -10,6 +10,8 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
 
 - [x] Tarea 1
 - [ ] Tarea 2
+  - [x] Ejercicio1
+  - [ ] Ejercicio2
 - [ ] Tarea 3
 - [ ] Tarea 4
 - [ ] Tarea 5
