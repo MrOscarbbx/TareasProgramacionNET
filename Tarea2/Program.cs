@@ -1,6 +1,5 @@
 ﻿
 using Tarea2;
 
-ControlPeliculas control = new ControlPeliculas();
-control.inicializarValores();
+ControlProductos control = new ControlProductos();
 control.mostrarMenuPprincipal();

@@ -1,22 +1,20 @@
-
-using System;
-namespace Tarea2 
+namespace Tarea2
 {
-    class ControlPeliculas
+    class ControlProductos
     {
-        private List<Pelicula> peliculas;
+          private List<Producto> Productos;
         private const string MENUPRINCIPAL=
-        @"-----Control Peliculas-----
-        1.- Agregar Pelicula
-        2.- Listar Peliculas
-        3.- Eliminar Pelicula
-        4.- Editar Pelicula
+        @"-----Control Productos-----
+        1.- Agregar Producto
+        2.- Listar Productos
+        3.- Eliminar Producto
+        4.- Editar Producto
         5.- Salir";
 
 
-        public ControlPeliculas()
+        public ControlProductos()
         {
-            this.peliculas = new List<Pelicula>();
+            this.Productos = new List<Producto>();
         }
 
         public void mostrarMenuPprincipal()
@@ -31,62 +29,63 @@ namespace Tarea2
             {
 
                 case 1:
-                    agregarPelicula();
+                    agregarProducto();
                     break;
                 case 2:
-                    listarPeliculas();
+                    listarProductos();
                     break;
                 case 3: 
-                    eliminarPelicula();
+                    eliminarProducto();
                     break;
                 case 4: 
-                    editarPelicula();
+                    editarProducto();
                     break;
                 case 5:
                     break;
             }
         }
 
-        private void editarPelicula()
+        private void editarProducto()
         {
             Console.Clear();
-            Console.WriteLine("Editar Pelicula");
-            listarPeliculas();
-            int id = pedirValorInt("ID de la Pelicula a Editar");
-            Pelicula? pelicula = peliculas.FirstOrDefault(p => p.ID == id);
-            if (pelicula != null)
+            Console.WriteLine("Editar Producto");
+            listarProductos();
+            int id = pedirValorInt("ID de la Producto a Editar");
+            Producto? Producto = Productos.FirstOrDefault(p => p.ID == id);
+            if (Producto != null)
             {
-                pelicula.nombre = pedirValorString("Nombre");
-                pelicula.año = pedirValorInt("Año");
-                pelicula.director = pedirValorString("Director"); 
+                Producto.nombre = pedirValorString("Nombre");
+                Producto.precio = pedirValorInt("Precio");
+                Producto.marca = pedirValorString("Marca"); 
 
 
-                Console.WriteLine($@"La Pelicula con el ID: {id} se editó correctamente.
+                Console.WriteLine($@"La Producto con el ID: {id} se editó correctamente.
                  Presiona 'Enter' para continuar...");
             }
             else
             {
-                
+                Console.WriteLine($@"La Producto con el ID: {id} No Existe.
+                 Presiona 'Enter' para continuar...");
             }
             Console.ReadLine();
             mostrarMenuPprincipal();
         }
 
-        private void eliminarPelicula()
+        private void eliminarProducto()
         {
             Console.Clear();
-            listarPeliculas();
-            int id = pedirValorInt("ID de la Pelicula a Editar");
-            Pelicula? pelicula = peliculas.FirstOrDefault(p => p.ID == id);
-            if (pelicula != null)
+            listarProductos();
+            int id = pedirValorInt("ID de la Producto a Eliminar");
+            Producto? Producto = Productos.FirstOrDefault(p => p.ID == id);
+            if (Producto != null)
             {
-                peliculas.Remove(pelicula);
-                Console.WriteLine($@"La pelicula con el ID: {pelicula.ID} se eliminó correctamente.
+                Productos.Remove(Producto);
+                Console.WriteLine($@"La Producto con el ID: {Producto.ID} se eliminó correctamente.
                  Presiona 'Enter' para continuar...");
             }
             else
             {
-                Console.WriteLine(@"No se encontró la Pelicula.
+                Console.WriteLine(@"No se encontró la Producto.
                  Presiona 'Enter' para continuar...");
             }
             Console.ReadLine();
@@ -94,27 +93,27 @@ namespace Tarea2
 
         }
 
-        private void listarPeliculas()
+        private void listarProductos()
         {
             Console.Clear();
-            System.Console.WriteLine("Lista Peliculas");
-            foreach (Pelicula item in peliculas)
+            System.Console.WriteLine("Lista Productos");
+            foreach (Producto item in Productos)
             {
                 System.Console.WriteLine(item.ToString());
             }
         }
 
-        private void agregarPelicula()
+        private void agregarProducto()
         {
             Console.Clear();
-            Pelicula? nuevaPelicula= new Pelicula(peliculas.Count() + 1,
+            Producto? nuevaProducto= new Producto(Productos.Count() + 1,
             pedirValorString("Nombre"),
-            pedirValorInt("Año"),
-            pedirValorString("Director")); 
-            peliculas.Add(nuevaPelicula);
+            pedirValorInt("Precio"),
+            pedirValorString("Marca")); 
+            Productos.Add(nuevaProducto);
 
 
-            Console.WriteLine(@"Pelicula registrado correctamente.
+            Console.WriteLine(@"Producto registrado correctamente.
             Presiona 'Enter' para continuar...");
             Console.ReadLine();
             mostrarMenuPprincipal();
@@ -171,21 +170,5 @@ namespace Tarea2
             } while (valor == null || valor == "");
             return valor;
         }
-
-        public void inicializarValores(){
-            Pelicula pelicula= new Pelicula(1,"Kingkong",1990,"Stipehn king");
-            Pelicula pelicula1= new Pelicula(2,"El Aro",2000,"Fausto");
-            Pelicula pelicula2= new Pelicula(3,"Gozilla",1980,"Akira toriyama");
-            Pelicula pelicula3= new Pelicula(4,"Star Wars",1980,"Gorge Lucas");
-            Pelicula pelicula4= new Pelicula(5,"El Señor de los Anillos",1995,"Lasetic");
-            Pelicula pelicula5= new Pelicula(6,"Star Trek",1980,"Un Fulano");
-            peliculas.Add(pelicula);
-            peliculas.Add(pelicula1);
-            peliculas.Add(pelicula2);
-            peliculas.Add(pelicula3);
-            peliculas.Add(pelicula4);
-            peliculas.Add(pelicula5);
-        }
-    }    
-
+    }
 }

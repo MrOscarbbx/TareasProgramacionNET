@@ -32,6 +32,6 @@ namespace Tarea2
         public int? año { get => Año; set => Año = value; }
         public string? director { get => Director; set => Director = value; }
 
-        public override string ToString() => $"ID:{Id}|Nombre: {Nombre}, Año: {Año}, Director{Director}";
+        public override string ToString() => $"ID:{Id}|Nombre: {Nombre}, Año: {Año}, Director: {Director}";
     }
 }
