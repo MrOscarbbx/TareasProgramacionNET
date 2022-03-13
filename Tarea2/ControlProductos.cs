@@ -10,6 +10,11 @@ namespace Tarea2
         3.- Eliminar Producto
         4.- Editar Producto
         5.- Salir";
+        private const string MENUTIPOS=
+        @"-----TIPO-----
+        1.- Limpieza
+        2.- Linea Blanca
+        3.- Otro";
 
 
         public ControlProductos()
@@ -51,14 +56,26 @@ namespace Tarea2
             Console.WriteLine("Editar Producto");
             listarProductos();
             int id = pedirValorInt("ID de la Producto a Editar");
-            Producto? Producto = Productos.FirstOrDefault(p => p.ID == id);
-            if (Producto != null)
+            Producto? producto = Productos.FirstOrDefault(p => p.ID == id);
+            if (producto != null)
             {
-                Producto.nombre = pedirValorString("Nombre");
-                Producto.precio = pedirValorInt("Precio");
-                Producto.marca = pedirValorString("Marca"); 
+                producto.nombre = pedirValorString("Nombre");
+                producto.precio = pedirValorInt("Precio");
+                producto.marca = pedirValorString("Marca");
 
+                if (producto is Limpieza)
+                {
+                    Limpieza productoLimpieza = (Limpieza)producto;
+                    productoLimpieza.cantidad = pedirValorInt("Cantidad");
+                    producto=productoLimpieza;
+                }
 
+                if (producto is LineaBlanca)
+                {
+                    LineaBlanca productoLinea = (LineaBlanca)producto;
+                    productoLinea.garantia = pedirValorString("Garantia");
+                    producto=productoLinea;
+                }
                 Console.WriteLine($@"La Producto con el ID: {id} se editó correctamente.
                  Presiona 'Enter' para continuar...");
             }
@@ -96,21 +113,62 @@ namespace Tarea2
         private void listarProductos()
         {
             Console.Clear();
-            System.Console.WriteLine("Lista Productos");
+            System.Console.WriteLine(MENUTIPOS);
+            int tipo=pedirValorInt("Tipo");
             foreach (Producto item in Productos)
             {
-                System.Console.WriteLine(item.ToString());
+                switch (tipo)
+                {
+                    case 1:
+                        if (item is Limpieza)
+                        {
+                            System.Console.WriteLine(item.ToString());
+                        }
+                        break;
+                    case 2:
+                        if (item is LineaBlanca)
+                        {
+                            System.Console.WriteLine(item.ToString());
+                        }
+                        break;
+                    default:
+                        System.Console.WriteLine(item.ToString());
+                        break;
+                }
             }
         }
 
         private void agregarProducto()
         {
             Console.Clear();
-            Producto? nuevaProducto= new Producto(Productos.Count() + 1,
-            pedirValorString("Nombre"),
-            pedirValorInt("Precio"),
-            pedirValorString("Marca")); 
-            Productos.Add(nuevaProducto);
+            Console.WriteLine(MENUTIPOS);
+            switch (pedirValorInt("Tipo"))
+            {
+                case 1:
+                    Limpieza? nuevaLimpieza= new Limpieza(Productos.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Precio"),
+                    pedirValorString("Marca"),
+                    pedirValorInt("Cantidad")); 
+                    Productos.Add(nuevaLimpieza);
+                    break;
+                case 2:
+                    LineaBlanca? nuevaLineaBlanca= new LineaBlanca(Productos.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Precio"),
+                    pedirValorString("Marca"),
+                    pedirValorString("Garantia")); 
+                    Productos.Add(nuevaLineaBlanca);
+                    break;
+                default:
+                    Producto? nuevaProducto= new Producto(Productos.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Precio"),
+                    pedirValorString("Marca")); 
+                    Productos.Add(nuevaProducto);
+                    break;
+
+            }
 
 
             Console.WriteLine(@"Producto registrado correctamente.
@@ -169,6 +227,16 @@ namespace Tarea2
                 }
             } while (valor == null || valor == "");
             return valor;
+        }
+
+        public void inicializarValores()
+        {
+            Producto producto= new Producto(1,"Escoba", 13,"La bruja");
+            Limpieza limpieza= new Limpieza(2,"Cloro",30,"Clorex",500);
+            LineaBlanca lineaBlanca= new LineaBlanca(3,"Lavadora",3000,"Yamaha","1 Año");
+            Productos.Add(producto);
+            Productos.Add(limpieza);
+            Productos.Add(lineaBlanca);
         }
     }
 }

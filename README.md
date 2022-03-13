@@ -8,10 +8,14 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
 
 :cowboy_hat_face: :sunglasses:
 
-- [x] Tarea 1
-- [ ] Tarea 2
-  - [x] Ejercicio1
-  - [ ] Ejercicio2
+- [x] Tarea 1.
+  - CALIFICACION: 90/100. 
+- [x] Tarea 2.
+  - [x] Ejercicio1.
+  - [x] Ejercicio2.
+  - ACLARACIONES : Si bien Cumple con el funcionamiento Intente que la Forma en que lo hice no fuera igual que la suya, Si esta mal Implementada agradeceria una retro alimentacion en la seccion de Comentarios
+  - COMENTARIOS: 
+  - CALIFICACION:
 - [ ] Tarea 3
 - [ ] Tarea 4
 - [ ] Tarea 5

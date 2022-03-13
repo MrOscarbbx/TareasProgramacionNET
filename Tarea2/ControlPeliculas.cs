@@ -12,8 +12,11 @@ namespace Tarea2
         3.- Eliminar Pelicula
         4.- Editar Pelicula
         5.- Salir";
-
-
+        private const string MENUTIPOS=
+        @"Tipo:
+            1.-Cd
+            2.-Vhs
+            3.-Comun";
         public ControlPeliculas()
         {
             this.peliculas = new List<Pelicula>();
@@ -97,23 +100,64 @@ namespace Tarea2
         private void listarPeliculas()
         {
             Console.Clear();
+            System.Console.WriteLine(MENUTIPOS);
+            int tipo = pedirValorInt("Tipo:");
             System.Console.WriteLine("Lista Peliculas");
             foreach (Pelicula item in peliculas)
             {
-                System.Console.WriteLine(item.ToString());
+                switch (tipo)
+                {
+                    case 1:
+                    if (item is Cd)
+                        {
+                            System.Console.WriteLine(item.ToString());
+                        }
+                        break;
+                    case 2:
+                    if (item is Vhs)
+                        {
+                            System.Console.WriteLine(item.ToString());
+                        }
+                        break;
+                    default:
+                        System.Console.WriteLine(item.ToString());
+                        break;
+                }
             }
         }
 
         private void agregarPelicula()
         {
             Console.Clear();
-            Pelicula? nuevaPelicula= new Pelicula(peliculas.Count() + 1,
-            pedirValorString("Nombre"),
-            pedirValorInt("Año"),
-            pedirValorString("Director")); 
-            peliculas.Add(nuevaPelicula);
-
-
+            System.Console.WriteLine(MENUTIPOS);
+            switch (pedirValorInt("Tipo"))
+            {
+                case 1:
+                    Console.Clear();
+                    Cd? nuevoCd= new Cd(peliculas.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Año"),
+                    pedirValorString("Director")); 
+                    peliculas.Add(nuevoCd); 
+                    break;
+                case 2:
+                    Console.Clear();
+                    Vhs? nuevaVhs= new Vhs(peliculas.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Año"),
+                    pedirValorString("Director")); 
+                    peliculas.Add(nuevaVhs);
+                    break;    
+                default:
+                    Console.Clear();
+                    Pelicula? nuevaPelicula= new Pelicula(peliculas.Count() + 1,
+                    pedirValorString("Nombre"),
+                    pedirValorInt("Año"),
+                    pedirValorString("Director")); 
+                    peliculas.Add(nuevaPelicula);
+                    break;
+            }
+        
             Console.WriteLine(@"Pelicula registrado correctamente.
             Presiona 'Enter' para continuar...");
             Console.ReadLine();
@@ -174,16 +218,16 @@ namespace Tarea2
 
         public void inicializarValores(){
             Pelicula pelicula= new Pelicula(1,"Kingkong",1990,"Stipehn king");
-            Pelicula pelicula1= new Pelicula(2,"El Aro",2000,"Fausto");
+            Cd cd1= new Cd(2,"El Aro",2000,"Fausto");
             Pelicula pelicula2= new Pelicula(3,"Gozilla",1980,"Akira toriyama");
             Pelicula pelicula3= new Pelicula(4,"Star Wars",1980,"Gorge Lucas");
-            Pelicula pelicula4= new Pelicula(5,"El Señor de los Anillos",1995,"Lasetic");
+            Vhs vhs4= new Vhs(5,"El Señor de los Anillos",1995,"Lasetic");
             Pelicula pelicula5= new Pelicula(6,"Star Trek",1980,"Un Fulano");
             peliculas.Add(pelicula);
-            peliculas.Add(pelicula1);
+            peliculas.Add(cd1);
             peliculas.Add(pelicula2);
             peliculas.Add(pelicula3);
-            peliculas.Add(pelicula4);
+            peliculas.Add(vhs4);
             peliculas.Add(pelicula5);
         }
     }    
