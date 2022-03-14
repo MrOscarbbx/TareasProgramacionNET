@@ -1,8 +1,12 @@
+using System.Linq;
+using System.Collections.Generic;
+using Examen1;
 namespace Examen1
 {
     class Ruleta
     {
         private Jugador jugador=new Jugador();
+        private List<int> balance= new List<int>();
         private const string MENUPRICIPAL=@"
         ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
         ■■■■■■■■■■■■■ VAMOS A JUGAR ■■■■■■■■■■■■■■■■
@@ -30,6 +34,11 @@ namespace Examen1
         --------------¿A Que Color?-----------------
                     1.-Por Par
                     2.-Por Impar
+        ";
+        private const string BALANCE=@"
+        ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+        -----------------BALANCE--------------------
+        ACTIVOS                 PERDIDAS
         ";
 
         public void mostarMenuPrincipal(){
@@ -95,6 +104,7 @@ namespace Examen1
                 }
                 
                 jugador.dinero+=resultado;
+                balance.Add(resultado);
                 if (resultado<0)
                 {
                     Console.WriteLine($"Perdiste");
@@ -113,6 +123,54 @@ namespace Examen1
         }
         public void revisarEstadistica()
         {
+            Console.Clear();
+            Console.WriteLine(BALANCE);
+            int activos=0;
+            int pasivos=0;
+            int par=0;
+            int impar=0;
+            int rojos=0;
+            int negros=0;
+            foreach (int item in balance)
+            {
+                if (item>0)
+                {
+                    Console.WriteLine(@"        "+item);
+                    activos+=item;
+                }
+                else
+                {
+                    Console.WriteLine(@"                                "+item);
+                    pasivos=(item*(-1));
+                }
+            }
+            Console.WriteLine(@$"--------------------------------------------------");
+            Console.WriteLine(@$"Total   {activos}                      -{pasivos}");
+
+            int mayor=jugador.jugadas[0].numero;
+            int menor=jugador.jugadas[0].numero;
+            foreach (var jugada in jugador.jugadas.GroupBy(j => j.numero))
+            {
+                if (jugada.Count()>mayor) mayor=jugada.Key;
+                if (jugada.Count()<menor) menor=jugada.Key;
+            }
+            Console.WriteLine(@$"--------------------------------------------------");
+            Console.WriteLine(@$"                   GIROS|{jugador.jugadas.Count()}          ");
+            Console.WriteLine(@$"           MAS|{mayor}             MENOS|{menor}     ");
+            foreach (var jugada in jugador.jugadas)
+            {
+                if (jugada.color==ColorJugada.ROJO) rojos++;
+                else negros++;
+                if (jugada.estado==ParImpar.PAR) par++;
+                else impar++;
+            }
+            Console.WriteLine(@$"--------------------------------------------------");
+            Console.WriteLine(@$"   PAR|{par}        IMPAR|{impar}     ROJOS|{rojos}      NEGROS|{negros}     ");
+            Console.WriteLine(@$"--------------------------------------------------");
+            Console.WriteLine(@$"
+                Preciona Enter para regresar al Juego");
+            Console.ReadLine();
+            mostarMenuPrincipal();
 
         }
 

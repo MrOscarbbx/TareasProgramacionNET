@@ -16,6 +16,10 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
   - ACLARACIONES : Si bien Cumple con el funcionamiento Intente que la Forma en que lo hice no fuera igual que la suya, Si esta mal Implementada agradeceria una retro alimentacion en la seccion de Comentarios
   - COMENTARIOS: 
   - CALIFICACION:
+- [x] EXAMEN 1 
+  - Al Igual que en la Tarea 2 implemente mi logica, si hay algo que pudiera mejorar pongalo en la seccion de comentarios
+  - COMENTARIOS:
+  - CALIFICACION: 
 - [ ] Tarea 3
 - [ ] Tarea 4
 - [ ] Tarea 5

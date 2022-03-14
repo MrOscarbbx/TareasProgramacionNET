@@ -6,10 +6,11 @@ namespace Examen1
 {
     class Jugador
     {
-        private List<Jugada> jugadas= new List<Jugada>();
+        private List<Jugada> Jugadas= new List<Jugada>();
         private int Dinero=300;
 
         public int dinero { get => Dinero; set => Dinero = value; }
+        public List<Jugada> jugadas { get => Jugadas; set => Jugadas = value; }
 
         public int apostarANumero(int apuesta,int numero)
         {
