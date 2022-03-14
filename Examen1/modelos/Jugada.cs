@@ -1,4 +1,5 @@
 
+using System;
 namespace Examen1
 {
     class Jugada
@@ -22,14 +23,17 @@ namespace Examen1
         {
             if (valor==0)
             {
-                return null;
+                return ColorJugada.NINGUNO;
             }
             else
             {
                 return esPar(valor)? ColorJugada.NEGRO : ColorJugada.ROJO;
             }
         }
-
+        public override string ToString()
+        {
+            return $"{Numero} | {Color} | {Estado}";
+        }
         public bool esPar(int valor)
         {
             return valor%2 == 0;

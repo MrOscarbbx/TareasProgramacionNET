@@ -10,14 +10,115 @@ namespace Examen1
         ------------¿Que quieres hacer?-------------
                         1.-Girar
                 2.-Revisar Estadisticas.
+                        3.-Salir.
+        ";
+        private const string MENUAPUESTAS=@"
+        ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+        ------¿De que tipo va ser la Apuesta?-------
+                        1.-Por Numero
+                        2.-Por Color
+                     3.-Por Par o Impar.
+        ";
+        private const string MENUCOLOR=@"
+        ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+        --------------¿A Que Color?-----------------
+                    1.-Por Rojo
+                    2.-Por Negro
+        ";
+        private const string MENUESTADO=@"
+        ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+        --------------¿A Que Color?-----------------
+                    1.-Por Par
+                    2.-Por Impar
         ";
 
-        private void mostarMenuPrincipal(){
-            int opcionSeleccionada;
+        public void mostarMenuPrincipal(){
+            int opcionSeleccionada = 0;
             do
             {
+                Console.Clear();
                 Console.WriteLine(MENUPRICIPAL);
-            } while (!validaMenu(2, ref opcionSeleccionada));
+            } while (!validaMenu(3, ref opcionSeleccionada));
+            switch (opcionSeleccionada)
+            {
+                case 1:
+                    girar();
+                    break;
+                case 2:
+                    revisarEstadistica();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void girar()
+        {
+            if (tieneDinero(jugador))
+            {
+                Console.Clear();
+                Console.WriteLine(MENUAPUESTAS);
+                int tipo=pedirValorInt("Tipo");
+                int apuesta;
+                do
+                {
+                Console.Clear();
+                Console.WriteLine($"Dinero Total : {jugador.dinero}");
+                apuesta=pedirValorInt("Apuesta");
+                
+                if (!((jugador.dinero-apuesta)>=0)) Console.WriteLine($"Fondos Insuficientes");
+                
+                } 
+                while (!((jugador.dinero-apuesta)>=0));
+                
+                int resultado;
+                switch (tipo)
+                {
+                    case 1:
+                        resultado = jugador.apostarANumero(apuesta,pedirValorInt("Numero"));
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine(MENUCOLOR);
+                        int opcionColor=pedirValorInt("Color");
+                        resultado = jugador.apostarAColor(apuesta,opcionColor==1? ColorJugada.ROJO : ColorJugada.NEGRO);
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine(MENUESTADO);
+                        int opcionEstado=pedirValorInt("Estado");
+                        resultado = jugador.apostarAEstado(apuesta,opcionEstado==1? ParImpar.PAR : ParImpar.IMPAR);
+                        break;
+                    default:
+                        resultado=0;
+                        break;
+                }
+                
+                jugador.dinero+=resultado;
+                if (resultado<0)
+                {
+                    Console.WriteLine($"Perdiste");
+                }
+                Console.WriteLine($"Dinero : {resultado}");
+                Console.WriteLine($"Dinero Total : {jugador.dinero}");
+                
+                Console.WriteLine($"Preciona Enter para regresar al Juego");
+                Console.ReadLine();
+                mostarMenuPrincipal();
+            }
+            else
+            {
+                Console.WriteLine($"Ya no tienes dinero");
+            }
+        }
+        public void revisarEstadistica()
+        {
+
+        }
+
+        public bool tieneDinero(Jugador jugador)
+        {
+            return jugador.dinero>0;
         }
 
         private bool validaMenu(int opciones, ref int opcionSeleccionada)

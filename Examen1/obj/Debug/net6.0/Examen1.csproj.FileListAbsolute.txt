@@ -3,3 +3,13 @@ C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1
 C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.AssemblyInfoInputs.cache
 C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.AssemblyInfo.cs
 C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.csproj.CoreCompileInputs.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\Examen1.exe
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\Examen1.deps.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\Examen1.runtimeconfig.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\Examen1.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\ref\Examen1.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\bin\Debug\net6.0\Examen1.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\ref\Examen1.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen1\obj\Debug\net6.0\Examen1.genruntimeconfig.cache
