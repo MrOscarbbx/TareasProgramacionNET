@@ -21,7 +21,7 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
   - COMENTARIOS:
   - CALIFICACION: 
 - [x] Tarea 3
-  - No se pude mejorar la logica al momento de los Ifs conun switch pero me fui a la segura para no tener problemas, intente acomodar el codigo para que sea mas legible pero creo que se podria optimizar mucho.
+  - No se si se puede mejorar la logica al momento de los Ifs con un switch pero me fui a la segura para no tener problemas, intente acomodar el codigo para que sea mas legible pero creo que se podria optimizar mucho.
   - COMENTARIOS:
   - CALIFICACION: 
 - [ ] Tarea 4
