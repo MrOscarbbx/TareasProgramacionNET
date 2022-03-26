@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+using System;
 using System.Drawing;
 namespace Tarea3;
 
@@ -158,17 +160,118 @@ public partial class Form1 : Form
         this.Controls.Add(lblResultado);
         this.Controls.Add(txtResultado);
     }
+//===========================================================================
     private void btnCalcular_Click(object sender, EventArgs e){
         string calculo= cmbCalculo.SelectedIndex.ToString();
         
-        int altura = 0;
-        int base_ = 0;
+        int lado1 = 0;
+        int lado2 = 0;
         int lado3 = 0;
         int lado4 = 0;
 
-        if(txtLado1.Text!=""){
-            altura=Convert.ToInt32(txtLado1.Text);
-            txtResultado.Text=(altura*4).ToString();
+        if(txtLado1.Text!=""||txtLado2.Text!=""||txtLado3.Text!=""||txtLado4.Text!=""){
+            if (cmbFiguras.SelectedItem != null && cmbCalculo.SelectedItem != null)
+            {
+                //Perimetros
+                if (cmbFiguras.SelectedItem.ToString() == "Cuadrado" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    txtResultado.Text=(lado1*4).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Rombo" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    txtResultado.Text=(lado1*4).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Rectangulo" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1+lado2)*2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Paralelogramo" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1+lado2)*2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Cometa" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1+lado2)*2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Circulo" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    txtResultado.Text=(((lado1)*2)*Math.PI).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Trapecio" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    lado3=Convert.ToInt32(txtLado3.Text);
+                    lado4=Convert.ToInt32(txtLado4.Text);
+                    txtResultado.Text=(lado1+lado2+lado3+lado4).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Triangulo" && cmbCalculo.SelectedItem.ToString() == "Périmetro")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    lado3=Convert.ToInt32(txtLado3.Text);
+                    txtResultado.Text=(lado1+lado2+lado3).ToString();
+                }
+                //Areas====================================================
+                if (cmbFiguras.SelectedItem.ToString() == "Rectangulo" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=(lado1*lado2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Triangulo" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1*lado2)/2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Paralelogramo" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=(lado1*lado2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Cuadrado" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    txtResultado.Text=(lado1*lado1).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Rombo" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1*lado2)/2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Cometa" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    txtResultado.Text=((lado1*lado2)/2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Trapecio" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    lado2=Convert.ToInt32(txtLado2.Text);
+                    lado3=Convert.ToInt32(txtLado3.Text);
+                    txtResultado.Text=(((lado1+lado2)*lado3)/2).ToString();
+                }
+                if (cmbFiguras.SelectedItem.ToString() == "Circulo" && cmbCalculo.SelectedItem.ToString() == "Área")
+                {
+                    lado1=Convert.ToInt32(txtLado1.Text);
+                    txtResultado.Text=((lado1*lado1)*Math.PI).ToString();
+                }
+
+            }
+
         }
     }
     
@@ -389,7 +492,7 @@ public partial class Form1 : Form
                 lblLado3.Visible = true;
                 txtLado3.Visible = true;
             }
-            //Areas
+            //Areas==================================================================================================
             if (cmbFiguras.SelectedItem.ToString() == "Rectangulo" && cmbCalculo.SelectedItem.ToString() == "Área")
             {
                 lblLado1.Text = "Altura";
@@ -468,6 +571,10 @@ public partial class Form1 : Form
         lblLado2.Text = "Lado 2";
         lblLado3.Text = "Lado 3";
         lblLado4.Text = "Lado 4";
+        txtLado1.Text = "";
+        txtLado2.Text = "";
+        txtLado3.Text = "";
+        txtLado4.Text = "";
         lblLado1.Visible = false;
         txtLado1.Visible = false;
         lblLado2.Visible = false;
