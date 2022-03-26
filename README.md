@@ -20,6 +20,9 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
   - Al Igual que en la Tarea 2 implemente mi logica, si hay algo que pudiera mejorar pongalo en la seccion de comentarios
   - COMENTARIOS:
   - CALIFICACION: 
-- [ ] Tarea 3
+- [x] Tarea 3
+  - No se pude mejorar la logica al momento de los Ifs conun switch pero me fui a la segura para no tener problemas, intente acomodar el codigo para que sea mas legible pero creo que se podria optimizar mucho.
+  - COMENTARIOS:
+  - CALIFICACION: 
 - [ ] Tarea 4
 - [ ] Tarea 5
