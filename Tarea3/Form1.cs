@@ -382,19 +382,19 @@ public partial class Form1 : Form
             }
             if (cmbFiguras.SelectedItem.ToString() == "Rombo" && cmbCalculo.SelectedItem.ToString() == "Área")
             {
-                lblLado1.Text = "Diagonal D";
+                lblLado1.Text = "Digl. D";
                 lblLado1.Visible = true;
                 txtLado1.Visible = true;
-                lblLado2.Text = "Diagonal d";
+                lblLado2.Text = "Digl. d";
                 lblLado2.Visible = true;
                 txtLado2.Visible = true;
             }
             if (cmbFiguras.SelectedItem.ToString() == "Cometa" && cmbCalculo.SelectedItem.ToString() == "Área")
             {
-                lblLado1.Text = "Diagonal D";
+                lblLado1.Text = "Digl. D";
                 lblLado1.Visible = true;
                 txtLado1.Visible = true;
-                lblLado2.Text = "Diagonal d";
+                lblLado2.Text = "Digl. d";
                 lblLado2.Visible = true;
                 txtLado2.Visible = true;
             }
@@ -528,19 +528,19 @@ public partial class Form1 : Form
             }
             if (cmbFiguras.SelectedItem.ToString() == "Rombo" && cmbCalculo.SelectedItem.ToString() == "Área")
             {
-                lblLado1.Text = "Diagonal D";
+                lblLado1.Text = "Digl. D";
                 lblLado1.Visible = true;
                 txtLado1.Visible = true;
-                lblLado2.Text = "Diagonal d";
+                lblLado2.Text = "Digl. d";
                 lblLado2.Visible = true;
                 txtLado2.Visible = true;
             }
             if (cmbFiguras.SelectedItem.ToString() == "Cometa" && cmbCalculo.SelectedItem.ToString() == "Área")
             {
-                lblLado1.Text = "Diagonal D";
+                lblLado1.Text = "Digl. D";
                 lblLado1.Visible = true;
                 txtLado1.Visible = true;
-                lblLado2.Text = "Diagonal d";
+                lblLado2.Text = "Digl. d";
                 lblLado2.Visible = true;
                 txtLado2.Visible = true;
             }
