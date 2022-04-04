@@ -352,7 +352,7 @@ public partial class Form1 : Form
     }
     private void btnFraccion_Click(object? sender, EventArgs e){
         lblOperacion.Text=$"1/({txtDisplay.Text}) =";
-        txtDisplay.Text=(1/Double.Parse(txtDisplay.Text)).ToString();
+        if (!(txtDisplay.Text=="0")) txtDisplay.Text=(1/Double.Parse(txtDisplay.Text)).ToString();
     }
 
 
@@ -382,20 +382,29 @@ public partial class Form1 : Form
     }
 
     private void btnBin_Click(object? sender, EventArgs e){
-        lblOperacion.Text=$"Bin({txtDisplay.Text}) =";
-        txtDisplay.Text=Convert.ToString(Int32.Parse(txtDisplay.Text),2);
+        if (!txtDisplay.Text.Contains("."))
+        {
+            lblOperacion.Text=$"Bin({txtDisplay.Text}) =";
+            txtDisplay.Text=Convert.ToString(Int32.Parse(txtDisplay.Text),2);
+        }
     }
     private void btnHex_Click(object? sender, EventArgs e){
+        if (!txtDisplay.Text.Contains(".")){
         lblOperacion.Text=$"Hex({txtDisplay.Text}) =";
         txtDisplay.Text=Convert.ToString(Int32.Parse(txtDisplay.Text),16);
+        }
     }
     private void btnOct_Click(object? sender, EventArgs e){
+        if (!txtDisplay.Text.Contains(".")){
         lblOperacion.Text=$"Oct({txtDisplay.Text}) =";
         txtDisplay.Text=Convert.ToString(Int32.Parse(txtDisplay.Text),8);
+        }
     }
     private void btnDec_Click(object? sender, EventArgs e){
+        if (!txtDisplay.Text.Contains(".")){
         lblOperacion.Text=$"Dec({txtDisplay.Text}) =";
         txtDisplay.Text=Convert.ToString(Int32.Parse(txtDisplay.Text),10);
+        }
     }
 
 
@@ -442,7 +451,7 @@ public partial class Form1 : Form
                 case "0":case "1":case "2":case "3":case "4":case "5":case "6":case "7":case "8":case "9":case ".":
                     boton_numero(btn.Text);
                     break;
-                case "+":case "-":case "*":case "/":case "x^y":case "Mod":
+                case "+":case "-":case "*":case "/":case "x^y":case "Mod":case "Exp":
                     boton_operador(btn.Text);
                     break;
                 default:
@@ -472,6 +481,9 @@ public partial class Form1 : Form
                 break;
             case "^":
                 txtDisplay.Text=(Math.Pow(resultado,Double.Parse(txtDisplay.Text))).ToString();
+                break;  
+            case ".e +":
+                txtDisplay.Text=((Math.Pow(10,Double.Parse(txtDisplay.Text)))*resultado).ToString();
                 break;  
             default:
                 break;
@@ -505,6 +517,10 @@ public partial class Form1 : Form
         if (operacion=="Mod")
         {
             operacion="%";
+        }
+        if (operacion=="Exp")
+        {
+            operacion=".e +";
         }
         resultado=Double.Parse(txtDisplay.Text);
         lblOperacion.Text=txtDisplay.Text+" "+operacion;
