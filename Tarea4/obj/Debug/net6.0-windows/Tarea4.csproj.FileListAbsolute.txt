@@ -1,0 +1,15 @@
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\Tarea4.exe
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\Tarea4.deps.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\Tarea4.runtimeconfig.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\Tarea4.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\ref\Tarea4.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\bin\Debug\net6.0-windows\Tarea4.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.csproj.AssemblyReference.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.AssemblyInfoInputs.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.AssemblyInfo.cs
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.csproj.CoreCompileInputs.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\ref\Tarea4.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Tarea4\obj\Debug\net6.0-windows\Tarea4.genruntimeconfig.cache
