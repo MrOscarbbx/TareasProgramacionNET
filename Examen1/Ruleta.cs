@@ -1,6 +1,8 @@
 using System.Linq;
+using System;
 using System.Collections.Generic;
 using Examen1;
+
 namespace Examen1
 {
     class Ruleta
