@@ -1,0 +1,15 @@
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\Examen2.exe
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\Examen2.deps.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\Examen2.runtimeconfig.json
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\Examen2.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\ref\Examen2.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\bin\Debug\net6.0-windows\Examen2.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.csproj.AssemblyReference.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.AssemblyInfoInputs.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.AssemblyInfo.cs
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.csproj.CoreCompileInputs.cache
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\ref\Examen2.dll
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.pdb
+C:\ProgramacionNET\Tareas\TareasProgramacionNET\Examen2\obj\Debug\net6.0-windows\Examen2.genruntimeconfig.cache
