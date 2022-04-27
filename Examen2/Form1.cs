@@ -76,7 +76,7 @@ public partial class Form1 : Form
         tlResultados.ColumnCount = 2;
         tlResultados.RowCount = 6;
         tlResultados.AutoSize = true;
-        tlResultados.Location = new Point(15, 15);
+        tlResultados.Location = new Point(25, 25);
 
 
         this.Controls.Add(lblMonedas);
@@ -92,5 +92,92 @@ public partial class Form1 : Form
     private void btnCalcular_Conversion(object? sender, EventArgs e)
     {
         Form2 opciones = new Form2();
+        if (opciones.ShowDialog() == DialogResult.OK)
+        {
+            tlResultados.Controls.Clear();
+            foreach (String item in opciones.chkList.CheckedItems)
+            {
+                Label etiqueta = new Label();
+                etiqueta.Text = item;
+                tlResultados.Controls.Add(etiqueta);
+
+                TextBox conversion = new TextBox();
+                conversion.Text = calcularConversion(cmdMonedas.Text, item).ToString();
+                tlResultados.Controls.Add(conversion);
+
+            }
+        }
+    }
+
+    private double calcularConversion(String moneda, String conv)
+    {
+        if (moneda != "" && conv != null && txtMonto.Text != "")
+        {
+            switch (moneda)
+            {
+                case "MXN - Peso mexicano":
+                    {
+                        switch (conv)
+                        {
+                            case "MXN - Peso mexicano": return Double.Parse(txtMonto.Text) * 1;
+                            case "USD - Dólar estadounidense": return Double.Parse(txtMonto.Text) * .05;
+                            case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * .06;
+                            case "EUR - Euro": return Double.Parse(txtMonto.Text) * .04;
+                            case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 5.32;
+                            default: return 0.0;
+                        }
+                    }
+                case "USD - Dólar estadounidense":
+                    {
+                        switch (conv)
+                        {
+                            case "MXN - Peso mexicano": return Double.Parse(txtMonto.Text) * 21.23;
+                            case "USD - Dólar estadounidense": return Double.Parse(txtMonto.Text) * 1;
+                            case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1.28;
+                            case "EUR - Euro": return Double.Parse(txtMonto.Text) * .89;
+                            case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 113.05;
+                            default: return 0.0;
+                        }
+                    }
+                case "CAD - Dólar canadiense":
+                    {
+                        switch (conv)
+                        {
+                            case "MXN - Peso mexicano": return Double.Parse(txtMonto.Text) * 16.55;
+                            case "USD - Dólar estadounidense": return Double.Parse(txtMonto.Text) * .78;
+                            case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1;
+                            case "EUR - Euro": return Double.Parse(txtMonto.Text) * .69;
+                            case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 88.12;
+                            default: return 0.0;
+                        }
+                    }
+                case "EUR - Euro":
+                    {
+                        switch (conv)
+                        {
+                            case "MXN - Peso mexicano": return Double.Parse(txtMonto.Text) * 23.96;
+                            case "USD - Dólar estadounidense": return Double.Parse(txtMonto.Text) * 1.13;
+                            case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1.45;
+                            case "EUR - Euro": return Double.Parse(txtMonto.Text) * 1;
+                            case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 127.56;
+                            default: return 0.0;
+                        }
+                    }
+                case "JPY - Yen japonés":
+                    {
+                        switch (conv)
+                        {
+                            case "MXN - Peso mexicano": return Double.Parse(txtMonto.Text) * .1878;
+                            case "USD - Dólar estadounidense": return Double.Parse(txtMonto.Text) * .0088;
+                            case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * .0113;
+                            case "EUR - Euro": return Double.Parse(txtMonto.Text) * .0113;
+                            case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 1;
+                            default: return 0.0;
+                        }
+                    }
+                default: return 0.0;
+            }
+        }
+        return 0.0;
     }
 }

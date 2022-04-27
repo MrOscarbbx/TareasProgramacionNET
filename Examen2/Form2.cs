@@ -2,7 +2,7 @@ namespace Examen2;
 
 public partial class Form2 : Form
 {
-    CheckedListBox chkList;
+    public CheckedListBox chkList;
     Button btnAceptar;
     Button btnCanelar;
 
@@ -18,7 +18,7 @@ public partial class Form2 : Form
         this.Text = "Monedas";
         this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         this.MaximizeBox = false;
-        this.StartPosition = FormStartPosition.CenterParent;
+        this.StartPosition = FormStartPosition.CenterScreen;
 
         chkList = new CheckedListBox();
         chkList.Size = new Size(250, 150);
@@ -32,14 +32,29 @@ public partial class Form2 : Form
         btnAceptar = new Button();
         btnAceptar.Text = "Aceptar";
         btnAceptar.Location = new Point(191, 170);
+        btnAceptar.Click += new EventHandler(btnAceptar_Click);
 
         btnCanelar = new Button();
         btnCanelar.Text = "Cancelar";
         btnCanelar.Location = new Point(15, 170);
+        btnCanelar.Click += new EventHandler(btnCancelar_Click);
+
 
         this.Controls.Add(chkList);
         this.Controls.Add(btnAceptar);
         this.Controls.Add(btnCanelar);
 
+    }
+
+    private void btnCancelar_Click(object? sender, EventArgs e)
+    {
+        this.DialogResult = DialogResult.Cancel;
+        this.Close();
+    }
+
+    private void btnAceptar_Click(object? sender, EventArgs e)
+    {
+        this.DialogResult = DialogResult.OK;
+        this.Close();
     }
 }
