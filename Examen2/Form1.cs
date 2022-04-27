@@ -57,6 +57,7 @@ public partial class Form1 : Form
         btnCalcular = new Button();
         btnCalcular.Text = "Calcular";
         btnCalcular.Location = new Point(200, 60);
+        btnCalcular.Click += new EventHandler(btnCalcular_Conversion);
 
         //Etiqueta Conversiones
         lblConversiones = new Label();
@@ -86,5 +87,10 @@ public partial class Form1 : Form
         this.Controls.Add(pnlResultados);
         pnlResultados.Controls.Add(lblConversiones);
         pnlResultados.Controls.Add(tlResultados);
+    }
+
+    private void btnCalcular_Conversion(object? sender, EventArgs e)
+    {
+        Form2 opciones = new Form2();
     }
 }
