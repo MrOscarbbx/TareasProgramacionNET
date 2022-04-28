@@ -41,6 +41,7 @@ public partial class Form1 : Form
         cmdMonedas.Items.Add("EUR - Euro");
         cmdMonedas.Items.Add("JPY - Yen japonés");
         cmdMonedas.Location = new Point(15, 30);
+        cmdMonedas.DropDownStyle = ComboBoxStyle.DropDownList;
 
         //Etiqueta Monto
         lblMonto = new Label();
@@ -91,27 +92,51 @@ public partial class Form1 : Form
 
     private void btnCalcular_Conversion(object? sender, EventArgs e)
     {
-        Form2 opciones = new Form2();
-        if (opciones.ShowDialog() == DialogResult.OK)
+        if (txtMonto.Text != "" && cmdMonedas.Text != "")
         {
-            tlResultados.Controls.Clear();
-            foreach (String item in opciones.chkList.CheckedItems)
+            Form2 opciones = new Form2(cmdMonedas.Text);
+            if (opciones.ShowDialog() == DialogResult.OK)
             {
-                Label etiqueta = new Label();
-                etiqueta.Text = item;
-                tlResultados.Controls.Add(etiqueta);
+                tlResultados.Controls.Clear();
+                foreach (String item in opciones.chkList.CheckedItems)
+                {
+                    Label etiqueta = new Label();
+                    etiqueta.Text = item;
+                    tlResultados.Controls.Add(etiqueta);
 
-                TextBox conversion = new TextBox();
-                conversion.Text = calcularConversion(cmdMonedas.Text, item).ToString();
-                tlResultados.Controls.Add(conversion);
+                    TextBox conversion = new TextBox();
+                    if (calcularConversion(cmdMonedas.Text, item) >= 0)
+                    {
+                        switch (item)
+                        {
+                            case "MXN - Peso mexicano":
+                                conversion.Text = "$ ";
+                                break;
+                            case "USD - Dólar estadounidense":
+                                conversion.Text = "$ ";
+                                break;
+                            case "CAD - Dólar canadiense":
+                                conversion.Text = "$ ";
+                                break;
+                            case "EUR - Euro":
+                                conversion.Text = "€ ";
+                                break;
+                            case "JPY - Yen japonés":
+                                conversion.Text = "¥ ";
+                                break;
+                        }
+                        conversion.Text += calcularConversion(cmdMonedas.Text, item).ToString();
+                    }
+                    tlResultados.Controls.Add(conversion);
 
+                }
             }
         }
     }
-
     private double calcularConversion(String moneda, String conv)
     {
-        if (moneda != "" && conv != null && txtMonto.Text != "")
+        Double d = 0.0;
+        if (moneda != "" && conv != null && txtMonto.Text != "" && Double.TryParse(txtMonto.Text, out d))
         {
             switch (moneda)
             {
@@ -124,7 +149,7 @@ public partial class Form1 : Form
                             case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * .06;
                             case "EUR - Euro": return Double.Parse(txtMonto.Text) * .04;
                             case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 5.32;
-                            default: return 0.0;
+                            default: return -1;
                         }
                     }
                 case "USD - Dólar estadounidense":
@@ -136,7 +161,7 @@ public partial class Form1 : Form
                             case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1.28;
                             case "EUR - Euro": return Double.Parse(txtMonto.Text) * .89;
                             case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 113.05;
-                            default: return 0.0;
+                            default: return -1;
                         }
                     }
                 case "CAD - Dólar canadiense":
@@ -148,7 +173,7 @@ public partial class Form1 : Form
                             case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1;
                             case "EUR - Euro": return Double.Parse(txtMonto.Text) * .69;
                             case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 88.12;
-                            default: return 0.0;
+                            default: return -1;
                         }
                     }
                 case "EUR - Euro":
@@ -160,7 +185,7 @@ public partial class Form1 : Form
                             case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * 1.45;
                             case "EUR - Euro": return Double.Parse(txtMonto.Text) * 1;
                             case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 127.56;
-                            default: return 0.0;
+                            default: return -1;
                         }
                     }
                 case "JPY - Yen japonés":
@@ -172,12 +197,12 @@ public partial class Form1 : Form
                             case "CAD - Dólar canadiense": return Double.Parse(txtMonto.Text) * .0113;
                             case "EUR - Euro": return Double.Parse(txtMonto.Text) * .0113;
                             case "JPY - Yen japonés": return Double.Parse(txtMonto.Text) * 1;
-                            default: return 0.0;
+                            default: return -1;
                         }
                     }
-                default: return 0.0;
+                default: return -1;
             }
         }
-        return 0.0;
+        return -1;
     }
 }

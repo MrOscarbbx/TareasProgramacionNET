@@ -5,9 +5,11 @@ public partial class Form2 : Form
     public CheckedListBox chkList;
     Button btnAceptar;
     Button btnCanelar;
+    String Moneda;
 
-    public Form2()
+    public Form2(string moneda)
     {
+        Moneda = moneda;
         InitializeComponent();
         InicializarComponentes();
     }
@@ -20,13 +22,24 @@ public partial class Form2 : Form
         this.MaximizeBox = false;
         this.StartPosition = FormStartPosition.CenterScreen;
 
+        List<string> lista = new List<string>();
+
+        lista.Add("MXN - Peso mexicano");
+        lista.Add("USD - Dólar estadounidense");
+        lista.Add("CAD - Dólar canadiense");
+        lista.Add("EUR - Euro");
+        lista.Add("JPY - Yen japonés");
+
+
         chkList = new CheckedListBox();
         chkList.Size = new Size(250, 150);
-        chkList.Items.Add("MXN - Peso mexicano");
-        chkList.Items.Add("USD - Dólar estadounidense");
-        chkList.Items.Add("CAD - Dólar canadiense");
-        chkList.Items.Add("EUR - Euro");
-        chkList.Items.Add("JPY - Yen japonés");
+        foreach (var item in lista)
+        {
+            if (item != Moneda)
+            {
+                chkList.Items.Add(item);
+            }
+        }
         chkList.Location = new Point(15, 15);
 
         btnAceptar = new Button();
