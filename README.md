@@ -24,4 +24,7 @@ _Repositorio para las tareas del curso de Programacion visual .NET_
 - [x] Tarea 4
   - No se Como queria que implentaramos la parte de Exp Asi que la implemente como esta en mi Calculadora
   - CALFICACION:
+- [x] Examen 2
+  - Utilize Muchos Switch Creo que hay patterns para hacerlo de manera mas eficiente pero fue lo que se me ocurrio en el momento.
+  - CALIFICACION:
 - [ ] Tarea 5
