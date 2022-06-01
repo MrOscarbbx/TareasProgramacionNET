@@ -13,7 +13,9 @@ namespace Examen3.Models
         [Display(Name = "Categoria")]
         public int IdCategoria { get; set; }
         [ForeignKey("IdCategoria")]
-        public Categorias Categoria { get; set; }
-        public double Precio { get; set; }
+        public Categorias? Categoria { get; set; }
+        public double? Precio { get; set; }
+        [Display(Name = "Imagen")]
+        public string? UrlImagen { get; set; }
     }
 }

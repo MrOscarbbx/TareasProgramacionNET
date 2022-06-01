@@ -13,10 +13,12 @@ namespace Examen3.Controllers
     public class PlatilloController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public PlatilloController(ApplicationDbContext context)
+        public PlatilloController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
 
         // GET: Platillo
@@ -57,14 +59,27 @@ namespace Examen3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,IdCategoria,Precio")] Platillo platillo)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,IdCategoria,Precio,UrlImagen")] Platillo platillo)
         {
-            /*if (ModelState.IsValid)
-            {*/
-            _context.Add(platillo);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-            //}
+            if (ModelState.IsValid)
+            {
+                string rutaPrincipal = _hostEnvironment.WebRootPath;
+                var archivos = HttpContext.Request.Form.Files;
+                if (archivos.Count() > 0)
+                {
+                    string nombreArchivo = Guid.NewGuid().ToString();
+                    var subidas = Path.Combine(rutaPrincipal, @"pics\platillos\");
+                    var extencion = Path.GetExtension(archivos[0].FileName);
+                    using (var fileString = new FileStream(Path.Combine(subidas, nombreArchivo + extencion), FileMode.Create))
+                    {
+                        archivos[0].CopyTo(fileString);
+                    }
+                    platillo.UrlImagen = @"pics\platillos\" + nombreArchivo + extencion;
+                }
+                _context.Add(platillo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
             ViewData["IdCategoria"] = new SelectList(_context.Categorias, "Id", "Nombre", platillo.IdCategoria);
             return View(platillo);
         }
@@ -91,7 +106,7 @@ namespace Examen3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,IdCategoria,Precio")] Platillo platillo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,IdCategoria,Precio,UrlImagen")] Platillo platillo)
         {
             if (id != platillo.Id)
             {
@@ -102,6 +117,30 @@ namespace Examen3.Controllers
             {
                 try
                 {
+                    string rutaPrincipal = _hostEnvironment.WebRootPath;
+                    var archivos = HttpContext.Request.Form.Files;
+                    if (archivos.Count() > 0)
+                    {
+                        Platillo platilloDb = await _context.Platillo.FindAsync(id);
+                        if (platilloDb != null && platilloDb != null)
+                        {
+                            var rutaImagenActual = Path.Combine(rutaPrincipal, platilloDb.UrlImagen);
+                            if (System.IO.File.Exists(rutaImagenActual))
+                            {
+                                System.IO.File.Delete(rutaImagenActual);
+                            }
+                            _context.Entry(platilloDb).State = EntityState.Detached;
+                        }
+                        string nombreArchivo = Guid.NewGuid().ToString();
+                        var subidas = Path.Combine(rutaPrincipal, @"pics\platillos\");
+                        var extencion = Path.GetExtension(archivos[0].FileName);
+                        using (var fileString = new FileStream(Path.Combine(subidas, nombreArchivo + extencion), FileMode.Create))
+                        {
+                            archivos[0].CopyTo(fileString);
+                        }
+                        platillo.UrlImagen = @"pics\platillos\" + nombreArchivo + extencion;
+                        _context.Entry(platillo).State = EntityState.Modified;
+                    }
                     _context.Update(platillo);
                     await _context.SaveChangesAsync();
                 }
